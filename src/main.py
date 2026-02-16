@@ -1,31 +1,43 @@
 import json
+import numpy as np
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Load model
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def load_dataset():
     with open("../dataset/bfsi_dataset.json", "r") as f:
         return json.load(f)
 
-def check_similarity(user_query, dataset):
-    for item in dataset:
-        if user_query.lower() in item["instruction"].lower():
-            return item["output"]
-    return None
+def find_best_match(user_query, dataset):
+    instructions = [item["instruction"] for item in dataset]
+    
+    query_embedding = model.encode([user_query])
+    dataset_embeddings = model.encode(instructions)
 
-def rag_response():
-    return "This query requires policy-based explanation. Please refer to official documentation."
+    similarities = cosine_similarity(query_embedding, dataset_embeddings)
+    best_score = np.max(similarities)
+    best_index = np.argmax(similarities)
+
+    if best_score > 0.80:
+        return dataset[best_index]["output"], best_score
+    return None, best_score
 
 def main():
     dataset = load_dataset()
     user_query = input("Enter your query: ")
 
-    response = check_similarity(user_query, dataset)
+    response, score = find_best_match(user_query, dataset)
+
+    print(f"Similarity Score: {score}")
 
     if response:
-        print("Dataset Response:")
+        print("\nTier 1: Dataset Response")
         print(response)
     else:
-        print("RAG Response:")
-        print(rag_response())
+        print("\nTier 2: No strong dataset match. RAG triggered.")
+        print("Please refer to official documentation for detailed explanation.")
 
 if __name__ == "__main__":
     main()
-
