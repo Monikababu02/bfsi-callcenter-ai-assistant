@@ -9,3 +9,17 @@ Late payments may attract penalty charges as per company policy.
 
 Foreclosure Policy:
 Customers may close loans early subject to foreclosure charges.
+
+SECTION: EMI Calculation
+EMI is calculated using:
+EMI = [P × R × (1+R)^N] / [(1+R)^N - 1]
+Where:
+P = Principal
+R = Monthly Interest Rate
+N = Tenure in months
+
+SECTION: Interest Policy
+Interest rates depend on credit profile and policy updates.
+
+SECTION: Late Payment
+Late payments may attract penalties as per company terms.
