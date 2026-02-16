@@ -1,3 +1,4 @@
+from guardrails import check_guardrails
 import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
@@ -31,6 +32,9 @@ def main():
     response, score = find_best_match(user_query, dataset)
 
     print(f"Similarity Score: {score}")
+    if not check_guardrails(user_query):
+    print("This request cannot be processed due to compliance restrictions.")
+    return
 
     if response:
         print("\nTier 1: Dataset Response")
