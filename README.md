@@ -27,3 +27,10 @@ Final Response
 - Guardrails for sensitive queries
 - RAG grounding for policy explanations
 - No hallucinated financial data
+
+## Version Control Strategy
+
+- Dataset Version: v1.0
+- Similarity Threshold: 0.80
+- Knowledge Base Version: v1.0
+- Model: all-MiniLM-L6-v2
