@@ -1,1 +1,13 @@
+[
+  {
+    "instruction": "Check loan eligibility",
+    "input": "Customer earning 30000 per month asking about personal loan",
+    "output": "Loan eligibility depends on income, credit score, repayment history, and existing liabilities. Please provide required documents for further processing."
+  },
+  {
+    "instruction": "Explain EMI",
+    "input": "Customer asking what EMI means",
+    "output": "EMI stands for Equated Monthly Installment. It is the fixed monthly payment made towards repayment of a loan, including principal and interest."
+  }
+]
 
