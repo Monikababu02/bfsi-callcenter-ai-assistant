@@ -19,3 +19,11 @@ If Match → Return Stored Response
 Else → RAG Knowledge Retrieval
    ↓
 Final Response
+
+## Compliance Strategy
+
+- Dataset-first response gating
+- Embedding similarity threshold (0.80)
+- Guardrails for sensitive queries
+- RAG grounding for policy explanations
+- No hallucinated financial data
