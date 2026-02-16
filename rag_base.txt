@@ -1,0 +1,11 @@
+EMI Calculation:
+EMI is calculated using principal amount, interest rate, and tenure.
+
+Interest Rates:
+Interest rates vary depending on loan type, customer credit score, and policy updates.
+
+Late Payment Policy:
+Late payments may attract penalty charges as per company policy.
+
+Foreclosure Policy:
+Customers may close loans early subject to foreclosure charges.
